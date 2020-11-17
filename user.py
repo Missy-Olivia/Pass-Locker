@@ -55,4 +55,20 @@ class Credentials :
         method to remove credential info from our list
         '''
         Credentials.creds_list.remove(self)
-        
+    @classmethod
+    def find_creds(account):
+        '''
+        method that shows credentials info using account
+        '''
+        for credential in creds_list :
+            if credential.account == account:
+                return credential
+    @classmethod
+    def display_creds(cls):
+        '''
+        method that displays credentials
+        '''
+        return cls.creds_list
+
+    
+    
