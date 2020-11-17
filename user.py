@@ -30,6 +30,17 @@ class User :
         '''
         User.user_list.remove(self)
 
+    @classmethod
+    def user_verif(cls,username,password):
+        '''
+        method to verify user info
+        '''
+        my_user = ""
+        for user in User.user_list():
+            if(user.username == username and user.password == password):
+                my_user = user.username
+        return my_user
+
 class Credentials :
     '''
     class to create credential instances
