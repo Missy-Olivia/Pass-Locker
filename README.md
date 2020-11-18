@@ -15,11 +15,11 @@ It can; create,delete,display and find credentials.
 
 ## Running
  * Open in terminal and use:
-  $ chmod +x run.py
+  $ chmod +x run.py <br>
   $ ./run.py
 ## Used technologies
  Python3.6
 
  ### License
- *MIT License*
+ *MIT License*<br>
  Copyright (c) 2020 **Missy Olivia**
