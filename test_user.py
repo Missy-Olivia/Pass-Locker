@@ -6,7 +6,7 @@ class TestUser (unittest.TestCase):
     '''
     test class that defines test case for user class behaviour
     '''
-    def tearDown (sefl):
+    def tearDown (self):
         '''
         method to clean up after running each test
         '''
@@ -52,6 +52,27 @@ class TestUser (unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
 
+    def test_display_user(self):
+        '''
+        running tests to see if we can display all users
+        '''
+        self.assertEqual(User.display_user(), User.user_list)
+
+class TestCreds(unittest.TestCase):
+    '''
+    test class to generate test cases for credentials class instances
+    '''
+    def tearDown (self):
+        '''
+        method to clean up after running each test
+        '''
+        Credentials.creds_list = []
+
+    def setUp(self):
+        '''
+        test case to run before other tests
+        '''
+        self.new_creds = Credentials("Tumblr", "Messy", "321")
 
 if __name__ == "__main__":
     unittest.main()

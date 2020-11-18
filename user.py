@@ -31,15 +31,16 @@ class User :
         return cls.user_list
 
     @classmethod
-    def user_verif(cls,username,password):
+    def user_verif(cls, username, password):
         '''
         method to verify user info
         '''
         my_user = ""
-        for user in User.user_list():
+        for user in User.user_list:
+
             if(user.username == username and user.password == password):
-                my_user = user.username
-        return my_user
+
+                return True 
 
 class Credentials :
     '''
