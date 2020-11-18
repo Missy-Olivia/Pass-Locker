@@ -2,7 +2,7 @@
 from user import User
 from user import Credentials
 
-def create_new_user(userName,passWord):
+def create_new_user(username,password):
     '''
     function to create new user
     '''
@@ -34,4 +34,33 @@ def users_verif(username, password):
     verified = User.user_verif(username,password)
     return verified
 
+def create_new_creds(account, user_name, pass_word):
+    '''
+    fx to create new credentials
+    '''
+    new_credentials = Credentials(account, user_name, pass_word)
+    return new_credentials
 
+def save_new_creds(credentials):
+    '''
+    fx to save credentials in our creds list
+    '''
+    credentials.save_creds()
+
+def delete_new_creds(credentials):
+    '''
+    fx to delete credentials from our creds list
+    '''
+    credentials.delete_creds()
+
+def findCreds(account):
+    '''
+    fx to find credentials by using account
+    '''
+    return credentials.find_creds(account)
+
+def display_all_creds(credentials):
+    '''
+    fx to display credentials in our creds list
+    '''
+    return credentials.display_creds()
