@@ -58,6 +58,18 @@ class TestUser (unittest.TestCase):
         '''
         self.assertEqual(User.display_user(), User.user_list)
 
+    def test_user_verif(self):
+        '''
+        method to check if we can get user by username
+        '''
+        self.new_user.save_user()
+        test_user = User("Loud", "123")
+        test_user.save_user()
+
+        verified = User.user_verif("Loud", "123")
+
+        self.assertTrue(verified)
+
 class TestCreds(unittest.TestCase):
     '''
     test class to generate test cases for credentials class instances
@@ -73,6 +85,59 @@ class TestCreds(unittest.TestCase):
         test case to run before other tests
         '''
         self.new_creds = Credentials("Tumblr", "Messy", "321")
+    
+    def test_init(self):
+        '''
+        test case to see if the objects have been properly initialized
+        '''
+        self.assertEqual(self.new_creds.account, "Tumblr")
+        self.assertEqual(self.new_creds.user_name, "Messy")
+        self.assertEqual(self.new_creds.pass_word, "321")
+
+    def test_save_creds(self):
+        '''
+        method to test if our credentials are being save into the creds list
+        '''
+        self.new_creds.save_creds()
+        self.assertEqual(len(Credentials.creds_list),1)
+    
+    def test_save_many_creds(self):
+        '''
+        method to test if we can add multiple credentials to our list
+        '''
+        self.new_creds.save_creds()
+        test_creds = Credentials("Gmail", "Mae", "345")
+        test_creds.save_creds()
+
+        self.assertEqual(len(Credentials.creds_list),2)
+
+    def test_delete_creds(self):
+        '''
+        method to test if we can remove creds from our list
+        '''
+        self.new_creds.save_creds()
+        test_creds = Credentials("Gmail", "Mae", "345")
+        test_creds.save_creds()
+
+        self.new_creds.delete_creds()
+        self.assertEqual(len(Credentials.creds_list),1)
+
+    def test_find_creds(self):
+        '''
+        method to test if we can find credentials using only the account
+        '''
+        self.new_creds.save_creds()
+        test_creds = Credentials("Gmail","Mae", "345")
+        test_creds.save_creds()
+
+        my_creds = Credentials.find_creds("Gmail")
+        self.assertEqual(my_creds.account, test_creds.account)
+
+    def test_display_creds(self):
+        '''
+         method to display creds list
+        '''
+        self.assertEqual(Credentials.display_creds(), Credentials.creds_list)
 
 if __name__ == "__main__":
     unittest.main()

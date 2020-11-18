@@ -36,7 +36,7 @@ class User :
         method to verify user info
         '''
         my_user = ""
-        for user in User.user_list:
+        for user in cls.user_list:
 
             if(user.username == username and user.password == password):
 
@@ -68,11 +68,11 @@ class Credentials :
         '''
         Credentials.creds_list.remove(self)
     @classmethod
-    def find_creds(account):
+    def find_creds(cls, account):
         '''
         method that shows credentials info using account
         '''
-        for credential in creds_list :
+        for credential in cls.creds_list :
             if credential.account == account:
                 return credential
     @classmethod
