@@ -14,8 +14,8 @@ It can; create,delete,display and find credentials.
 * cd PassWord-Locker then code .
 
 ## Running
- * Open in terminal and use:
-  $ chmod +x run.py <br>
+ * Open in terminal and use:<br>
+  $ chmod +x run.py , then <br>
   $ ./run.py
 ## Used technologies
  Python3.6
